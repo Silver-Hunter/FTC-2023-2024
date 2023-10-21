@@ -17,13 +17,13 @@ public class motorTest extends LinearOpMode {
         telemetry.update();
         motor1 = hardwareMap.get(DcMotor.class, "motor1");
         motor2 = hardwareMap.get(DcMotor.class, "motor2");
+        motor1.setDirection(DcMotor.Direction.REVERSE);
+        motor2.setDirection(DcMotor.Direction.FORWARD);
 
         waitForStart();
 
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
-            motor1.setDirection(DcMotor.Direction.REVERSE);
-            motor2.setDirection(DcMotor.Direction.FORWARD);
             telemetry.addData("Status", "Running");
             telemetry.update();
         }

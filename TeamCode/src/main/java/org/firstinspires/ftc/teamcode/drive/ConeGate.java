@@ -1,6 +1,7 @@
+/*
 package org.firstinspires.ftc.teamcode.drive;
-
-import com.qualcomm.robotcore.hardware.HardwareMap;
+ */
+/*import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 public class ConeGate {
@@ -23,4 +24,4 @@ public class ConeGate {
     public void close() {
         arm.setPosition(ARM_CLOSED);
     }
-}
+} */
