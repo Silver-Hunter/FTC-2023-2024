@@ -100,10 +100,10 @@ public class motorTest extends LinearOpMode {
 
  */
 
-            motor1.setPower(leftFrontPower);
-            motor2.setPower(rightFrontPower);
-            motor3.setPower(leftBackPower);
-            motor4.setPower(rightBackPower);
+            motor1.setPower(Math.pow(leftFrontPower, 3));
+            motor2.setPower(Math.pow(rightFrontPower, 3));
+            motor3.setPower(Math.pow(leftBackPower, 3));
+            motor4.setPower(Math.pow(rightBackPower, 3));
 
 
             // Show the elapsed game time and wheel power.
