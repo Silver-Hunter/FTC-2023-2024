@@ -92,11 +92,13 @@ public class motorTest extends LinearOpMode {
 
 
             // Send calculated power to wheels
-
+/*
             leftFrontPower  = gamepad1.x ? 1.0 : 0.0;  // X gamepad
             rightFrontPower = gamepad1.y ? 1.0 : 0.0;  // Y gamepad
             leftBackPower   = gamepad1.a ? 1.0 : 0.0;  // A gamepad
             rightBackPower  = gamepad1.b ? 1.0 : 0.0;  // B gamepad
+
+ */
 
             motor1.setPower(leftFrontPower);
             motor2.setPower(rightFrontPower);
