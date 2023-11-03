@@ -5,17 +5,14 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp
-public class servoTest extends LinearOpMode {
-    private Servo servo1;
+public class plainServoTest extends LinearOpMode {
+    private Servo servo2;
     @Override
     public void runOpMode() {
-        servo1 = hardwareMap.get(Servo.class, "pinch");
+        servo2 = hardwareMap.get(Servo.class, "weeeee");
 
-        if (gamepad2.x){
-            servo1.setPosition(0);
-        }
-        if (gamepad2.y){
-            servo1.setPosition(1);
+        if (gamepad2.dpad_up){
+            servo2.setPosition(1.0);
         }
 
     }
