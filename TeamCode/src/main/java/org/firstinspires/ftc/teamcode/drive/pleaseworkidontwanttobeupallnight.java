@@ -11,6 +11,7 @@ public class pleaseworkidontwanttobeupallnight extends LinearOpMode {
     @Override
     public void runOpMode() {
         servo2 = hardwareMap.get(Servo.class, "weeeee");
+
         telemetry.addData("Status", "Initialized");
         telemetry.update();
         waitForStart();

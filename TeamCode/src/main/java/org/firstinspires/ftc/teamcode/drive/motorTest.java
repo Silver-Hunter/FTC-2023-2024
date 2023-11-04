@@ -59,7 +59,7 @@ public class motorTest extends LinearOpMode {
         while (opModeIsActive()) {
 
             motor5.setPower(0.1);
-            motor5.setPower(gamepad2.left_stick_x);
+            motor5.setPower(Math.pow(gamepad2.left_stick_x, 3));
 
             double max;
 
