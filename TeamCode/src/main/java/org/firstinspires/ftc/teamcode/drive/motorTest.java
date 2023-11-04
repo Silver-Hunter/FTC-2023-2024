@@ -12,16 +12,19 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * 3) Yaw:      Rotating Clockwise and counter clockwise    Right-joystick Right and Left
  */
 
-@TeleOp(name="Here we go again", group="Linear OpMode")
+@TeleOp(name="Starting over, as usual", group="Linear OpMode")
 
 public class motorTest extends LinearOpMode {
 
-    // Declare OpMode members for each of the 4 motors.
     private ElapsedTime runtime = new ElapsedTime();
     private DcMotor frontLeft = null;
     private DcMotor frontRight = null;
     private DcMotor backLeft = null;
     private DcMotor backRight = null;
+    private DcMotor motor5 = null;
+    private Servo servo1;
+    private Servo servo2;
+    private Servo servo3;
 
 
     @Override
@@ -33,6 +36,10 @@ public class motorTest extends LinearOpMode {
         frontRight = hardwareMap.get(DcMotor.class, "motor2");
         backLeft = hardwareMap.get(DcMotor.class, "motor3");
         backRight = hardwareMap.get(DcMotor.class, "motor4");
+        motor5 = hardwareMap.get(DcMotor.class, "armMotor");
+        servo1 = hardwareMap.get(Servo.class, "pinch");
+        servo2 = hardwareMap.get(Servo.class, "weeeee");
+        servo3 = hardwareMap.get(Servo.class, "creeeak");
 
 
 
@@ -50,6 +57,10 @@ public class motorTest extends LinearOpMode {
 
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
+
+            motor5.setPower(0.1);
+            motor5.setPower(gamepad2.left_stick_x);
+
             double max;
 
             // POV Mode uses left joystick to go forward & strafe, and right joystick to rotate.
@@ -77,12 +88,29 @@ public class motorTest extends LinearOpMode {
                 rightBackPower  /= max;
             }
 
-
             frontLeft.setPower(Math.pow(leftFrontPower, 3));
             frontRight.setPower(Math.pow(rightFrontPower, 3));
             backLeft.setPower(Math.pow(leftBackPower, 3));
             backRight.setPower(Math.pow(rightBackPower, 3));
 
+            if (gamepad2.x){
+                servo1.setPosition(0);
+            }
+            if (gamepad2.y){
+                servo1.setPosition(1);
+            }
+            if (gamepad2.dpad_up) {
+                servo2.setPosition(0);
+            }
+            if (gamepad2.dpad_down) {
+                servo2.setPosition(1);
+            }
+            if (gamepad2.a) {
+                servo3.setPosition(0);
+            }
+            if (gamepad2.b) {
+                servo3.setPosition(1);
+            }
 
             // Show the elapsed game time and wheel power.
             telemetry.addData("Status", "Run Time: " + runtime.toString());
@@ -90,4 +118,5 @@ public class motorTest extends LinearOpMode {
             telemetry.addData("Back  left/Right", "%4.2f, %4.2f", leftBackPower, rightBackPower);
             telemetry.update();
         }
-    }}
+    }
+}

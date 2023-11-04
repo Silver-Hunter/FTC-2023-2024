@@ -9,13 +9,11 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 public class armTest extends LinearOpMode {
 
-    private DcMotor motor = null;
-    public static final double MAX_FWD =  0.1;
-    public static final double MAX_REV = -0.1;
+    private DcMotor motor5 = null;
 
     @Override
     public void runOpMode(){
-        motor = hardwareMap.get(DcMotor.class, "armMotor");
+        motor5 = hardwareMap.get(DcMotor.class, "armMotor");
 
         telemetry.addData("Status", "Initialized");
         telemetry.update();
@@ -23,8 +21,8 @@ public class armTest extends LinearOpMode {
 
 
         while (opModeIsActive()) {
-            motor.setPower(0.1);
-            motor.setPower(gamepad1.left_stick_x);
+            motor5.setPower(0.1);
+            motor5.setPower(gamepad1.left_stick_x);
 
         }
 
