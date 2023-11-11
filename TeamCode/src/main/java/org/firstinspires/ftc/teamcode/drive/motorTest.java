@@ -15,7 +15,6 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 @TeleOp(name="Starting over, as usual", group="Linear OpMode")
 
 public class motorTest extends LinearOpMode {
-
     private ElapsedTime runtime = new ElapsedTime();
     private DcMotor frontLeft = null;
     private DcMotor frontRight = null;
@@ -25,7 +24,6 @@ public class motorTest extends LinearOpMode {
     private Servo servo1;
     private Servo servo2;
     private Servo servo3;
-
 
     @Override
     public void runOpMode() {
@@ -40,6 +38,16 @@ public class motorTest extends LinearOpMode {
         servo1 = hardwareMap.get(Servo.class, "pinch");
         servo2 = hardwareMap.get(Servo.class, "weeeee");
         servo3 = hardwareMap.get(Servo.class, "creeeak");
+
+        frontLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        frontRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        backLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        backRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        frontLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        frontRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        backLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        backRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
 
 
@@ -63,12 +71,21 @@ public class motorTest extends LinearOpMode {
 
             double max;
 
-            // POV Mode uses left joystick to go forward & strafe, and right joystick to rotate.
             double axial   = -gamepad1.left_stick_y;  // Note: pushing stick forward gives negative value
             double lateral =  gamepad1.left_stick_x;
             double yaw     =  gamepad1.right_stick_x;
 
-            // Combine the joystick requests for each axis-motion to determine each wheel's power.
+            if (gamepad1.left_trigger > 0.000) {
+                axial = axial * 0.55;
+                lateral = lateral * 0.55;
+                yaw = yaw * 0.55;
+            }
+            if (gamepad1.left_trigger > 0.000 && gamepad1.left_trigger < 0.001) {
+                axial = axial / 0.55;
+                lateral = lateral / 0.55;
+                yaw = yaw / 0.55;
+            }
+                // Combine the joystick requests for each axis-motion to determine each wheel's power.
             // Set up a variable for each drive wheel to save the power level for telemetry.
             double leftFrontPower  = axial + lateral + yaw;
             double rightFrontPower = axial - lateral - yaw;
@@ -93,6 +110,11 @@ public class motorTest extends LinearOpMode {
             backLeft.setPower(Math.pow(leftBackPower, 3));
             backRight.setPower(Math.pow(rightBackPower, 3));
 
+            int position1 = frontLeft.getCurrentPosition();
+            int position2 = frontRight.getCurrentPosition();
+            int position3 = backLeft.getCurrentPosition();
+            int position4 = backRight.getCurrentPosition();
+
             if (gamepad2.x){
                 servo1.setPosition(0);
             }
@@ -116,6 +138,10 @@ public class motorTest extends LinearOpMode {
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.addData("Front left/Right", "%4.2f, %4.2f", leftFrontPower, rightFrontPower);
             telemetry.addData("Back  left/Right", "%4.2f, %4.2f", leftBackPower, rightBackPower);
+            telemetry.addData("Encoder 1 Position", position1);
+            telemetry.addData("Encoder 2 Position", position2);
+            telemetry.addData("Encoder 3 position", position3);
+            telemetry.addData("Encoder 4 position", position4);
             telemetry.update();
         }
     }
