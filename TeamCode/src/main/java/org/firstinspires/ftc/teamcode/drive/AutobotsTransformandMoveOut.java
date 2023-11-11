@@ -48,7 +48,7 @@ public class AutobotsTransformandMoveOut extends LinearOpMode {
     static final double     WHEEL_DIAMETER_INCHES   = 3.9 ;     // For figuring circumference
     static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
             (WHEEL_DIAMETER_INCHES * 3.1415);
-    static final double     DRIVE_SPEED             = 0.5;
+    static final double     DRIVE_SPEED             = 0.4;
     static final double     TURN_SPEED              = 0.4;
 
     @Override
@@ -90,9 +90,9 @@ public class AutobotsTransformandMoveOut extends LinearOpMode {
 
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
-        encoderDrive(DRIVE_SPEED,  5,  5, 1.0);  // S1: Forward 47 Inches with 5 Sec timeout
-        encoderDrive(TURN_SPEED,   10, -10, 1.05);  // S2: Turn Right 12 Inches with 4 Sec timeout
-        encoderDrive(DRIVE_SPEED, -6, -6, 0.5);  // S3: Reverse 24 Inches with 4 Sec timeout
+        encoderDrive(DRIVE_SPEED,  5,  5, 1.1);  // S1: Forward 47 Inches with 5 Sec timeout
+        encoderDrive(TURN_SPEED,   5, -5, 1.15);  // S2: Turn Right 12 Inches with 4 Sec timeout
+        encoderDrive(DRIVE_SPEED, -6, -6, 0.65);  // S3: Reverse 24 Inches with 4 Sec timeout
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
