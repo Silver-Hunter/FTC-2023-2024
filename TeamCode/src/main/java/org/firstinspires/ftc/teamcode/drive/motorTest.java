@@ -21,9 +21,9 @@ public class motorTest extends LinearOpMode {
     private DcMotor backLeft = null;
     private DcMotor backRight = null;
     private DcMotor motor5 = null;
+    private DcMotor Dronatron;
     private Servo servo1;
     private Servo servo2;
-    private Servo servo3;
 
     @Override
     public void runOpMode() {
@@ -35,9 +35,9 @@ public class motorTest extends LinearOpMode {
         backLeft = hardwareMap.get(DcMotor.class, "motor3");
         backRight = hardwareMap.get(DcMotor.class, "motor4");
         motor5 = hardwareMap.get(DcMotor.class, "armMotor");
+        Dronatron = hardwareMap.get(DcMotor.class, "motor6");
         servo1 = hardwareMap.get(Servo.class, "pinch");
-        servo2 = hardwareMap.get(Servo.class, "weeeee");
-        servo3 = hardwareMap.get(Servo.class, "creeeak");
+        servo2 = hardwareMap.get(Servo.class, "creeeak");
 
         frontLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         frontRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -121,18 +121,14 @@ public class motorTest extends LinearOpMode {
             if (gamepad2.y){
                 servo1.setPosition(1);
             }
-            if (gamepad2.dpad_up) {
+            if (gamepad2.a) {
                 servo2.setPosition(0);
             }
-            if (gamepad2.dpad_down) {
+            if (gamepad2.b) {
                 servo2.setPosition(1);
             }
-            if (gamepad2.a) {
-                servo3.setPosition(0);
-            }
-            if (gamepad2.b) {
-                servo3.setPosition(1);
-            }
+
+            Dronatron.setPower(gamepad2.right_trigger);
 
             // Show the elapsed game time and wheel power.
             telemetry.addData("Status", "Run Time: " + runtime.toString());
