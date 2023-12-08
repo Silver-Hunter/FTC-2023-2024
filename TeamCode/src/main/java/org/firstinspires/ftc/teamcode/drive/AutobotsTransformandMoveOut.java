@@ -90,7 +90,7 @@ public class AutobotsTransformandMoveOut extends LinearOpMode {
 
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
-        encoderDrive(DRIVE_SPEED,  26,  26, 2.0);
+        encoderDrive(DRIVE_SPEED,  27,  27, 2.0);
         //encoderDrive(TURN_SPEED,   5, -5, 0.15);
         //encoderDrive(DRIVE_SPEED, -6, -6, 0.235);
 
