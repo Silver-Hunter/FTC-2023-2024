@@ -36,10 +36,10 @@ public class motorTest extends LinearOpMode {
         frontRight = hardwareMap.get(DcMotor.class, "motor2");
         backLeft = hardwareMap.get(DcMotor.class, "motor3");
         backRight = hardwareMap.get(DcMotor.class, "motor4");
-        motor5 = hardwareMap.get(DcMotor.class, "armMotor");
+//        motor5 = hardwareMap.get(DcMotor.class, "armMotor");
         Dronatron = hardwareMap.get(DcMotor.class, "motor6");
-        servo1 = hardwareMap.get(Servo.class, "pinch");
-        servo2 = hardwareMap.get(Servo.class, "creeeak");
+//        servo1 = hardwareMap.get(Servo.class, "pinch");
+//        servo2 = hardwareMap.get(Servo.class, "creeeak");
 
         frontLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         frontRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -68,8 +68,8 @@ public class motorTest extends LinearOpMode {
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
 
-            motor5.setPower(0.1);
-            motor5.setPower(Math.pow(gamepad2.left_stick_x, 3));
+//            motor5.setPower(0.1);
+//            motor5.setPower(Math.pow(gamepad2.left_stick_x, 3));
 
             double max;
 
@@ -117,18 +117,18 @@ public class motorTest extends LinearOpMode {
             int position3 = backLeft.getCurrentPosition();
             int position4 = backRight.getCurrentPosition();
 
-            if (gamepad2.x){
-                servo1.setPosition(0);
-            }
-            if (gamepad2.y){
-                servo1.setPosition(1);
-            }
-            if (gamepad2.a) {
-                servo2.setPosition(0);
-            }
-            if (gamepad2.b) {
-                servo2.setPosition(1);
-            }
+//            if (gamepad2.x){
+//                servo1.setPosition(0);
+//            }
+//            if (gamepad2.y){
+//                servo1.setPosition(1);
+//            }
+//            if (gamepad2.a) {
+//                servo2.setPosition(0);
+//            }
+//            if (gamepad2.b) {
+//                servo2.setPosition(1);
+//            }
             Dronatron.setPower(-gamepad2.right_trigger);
 
 
