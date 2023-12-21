@@ -131,7 +131,6 @@ public class motorTest extends LinearOpMode {
 //            }
             Dronatron.setPower(-gamepad2.right_trigger);
 
-
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.addData("Front left/Right", "%4.2f, %4.2f", leftFrontPower, rightFrontPower);
             telemetry.addData("Back  left/Right", "%4.2f, %4.2f", leftBackPower, rightBackPower);
