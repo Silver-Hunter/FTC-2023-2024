@@ -23,7 +23,9 @@ public class motorTest extends LinearOpMode {
     private DcMotor backLeft = null;
     private DcMotor backRight = null;
     private DcMotor motor5 = null;
-    private DcMotor Dronatron;
+    private DcMotor motor6;
+    private DcMotor motor7 = null;
+    private DcMotor motor8;
     private Servo servo1;
     private Servo servo2;
 
@@ -36,10 +38,12 @@ public class motorTest extends LinearOpMode {
         frontRight = hardwareMap.get(DcMotor.class, "motor2");
         backLeft = hardwareMap.get(DcMotor.class, "motor3");
         backRight = hardwareMap.get(DcMotor.class, "motor4");
-//        motor5 = hardwareMap.get(DcMotor.class, "armMotor");
-        Dronatron = hardwareMap.get(DcMotor.class, "motor6");
-//        servo1 = hardwareMap.get(Servo.class, "pinch");
-//        servo2 = hardwareMap.get(Servo.class, "creeeak");
+        motor8 = hardwareMap.get(DcMotor.class, "motor8");
+        motor6 = hardwareMap.get(DcMotor.class, "motor6");
+        motor7 = hardwareMap.get(DcMotor.class, "motor7");
+        motor5 = hardwareMap.get(DcMotor.class, "motor5");
+        servo1 = hardwareMap.get(Servo.class, "creeeak");
+//        servo2 = hardwareMap.get(Servo.class, "pinch");
 
         frontLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         frontRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -68,8 +72,8 @@ public class motorTest extends LinearOpMode {
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
 
-//            motor5.setPower(0.1);
-//            motor5.setPower(Math.pow(gamepad2.left_stick_x, 3));
+            motor8.setPower(0.1);
+            motor8.setPower(Math.pow(gamepad2.left_stick_x, 3));
 
             double max;
 
@@ -128,9 +132,15 @@ public class motorTest extends LinearOpMode {
 //                servo2.setPosition(0);
 //            }
 //            if (gamepad2.b) {
+
 //                servo2.setPosition(1);
 //            }
-            Dronatron.setPower(-gamepad2.right_trigger);
+            motor5.setPower(-gamepad2.left_trigger);
+            motor6.setPower(1.0);
+            motor7.setPower(1.0);
+            motor6.setPower(gamepad2.right_trigger);
+            motor7.setPower(gamepad2.right_trigger);
+
 
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.addData("Front left/Right", "%4.2f, %4.2f", leftFrontPower, rightFrontPower);

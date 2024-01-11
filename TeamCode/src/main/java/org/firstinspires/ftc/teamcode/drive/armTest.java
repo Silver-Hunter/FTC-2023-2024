@@ -5,15 +5,15 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@TeleOp(name="And yet again", group="Linear OpMode")
+@TeleOp(name="errrmm, acually", group="Linear OpMode")
 
 public class armTest extends LinearOpMode {
 
-    private DcMotor motor5 = null;
+    private DcMotor motor8 = null;
 
     @Override
     public void runOpMode(){
-        motor5 = hardwareMap.get(DcMotor.class, "armMotor");
+        motor8 = hardwareMap.get(DcMotor.class, "armMotor");
 
         telemetry.addData("Status", "Initialized");
         telemetry.update();
@@ -21,8 +21,8 @@ public class armTest extends LinearOpMode {
 
 
         while (opModeIsActive()) {
-            motor5.setPower(0.1);
-            motor5.setPower(gamepad1.left_stick_x);
+            motor8.setPower(0.1);
+            motor8.setPower(gamepad1.left_stick_x);
 
         }
 
