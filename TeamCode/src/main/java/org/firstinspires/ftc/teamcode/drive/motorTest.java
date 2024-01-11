@@ -123,6 +123,7 @@ public class motorTest extends LinearOpMode {
             if (gamepad2.y){
                 servo1.setPosition(1);
             }
+
 //            if (gamepad2.a) {
 //                servo2.setPosition(0);
 //            }
