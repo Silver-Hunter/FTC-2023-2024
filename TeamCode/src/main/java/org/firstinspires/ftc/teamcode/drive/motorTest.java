@@ -117,12 +117,12 @@ public class motorTest extends LinearOpMode {
             int position3 = backLeft.getCurrentPosition();
             int position4 = backRight.getCurrentPosition();
 
-//            if (gamepad2.x){
-//                servo1.setPosition(0);
-//            }
-//            if (gamepad2.y){
-//                servo1.setPosition(1);
-//            }
+            if (gamepad2.x){
+                servo1.setPosition(0);
+            }
+            if (gamepad2.y){
+                servo1.setPosition(1);
+            }
 //            if (gamepad2.a) {
 //                servo2.setPosition(0);
 //            }
