@@ -28,7 +28,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  *  This code uses the RUN_TO_POSITION mode to enable the Motor controllers to generate the run profile
  */
 
-@Autonomous(name="AutoWork? (B)", group="Robot")
+@Autonomous(name="AutoWork? (Blue)", group="Robot")
 public class Left extends LinearOpMode {
 
     private ElapsedTime runtime = new ElapsedTime();
