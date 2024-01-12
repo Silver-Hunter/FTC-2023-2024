@@ -136,11 +136,23 @@ public class motorTest extends LinearOpMode {
 //                servo2.setPosition(1);
 //            }
             motor5.setPower(-gamepad2.left_trigger);
-            motor6.setPower(1.0);
-            motor7.setPower(1.0);
-            motor6.setPower(gamepad2.right_trigger);
-            motor7.setPower(gamepad2.right_trigger);
 
+//            if (gamepad2.right_trigger > 0.000) {
+//                motor6.setPower(1.0);
+//                motor7.setPower(1.0);
+//            }
+//            if (gamepad2.right_trigger > 0.000 && gamepad2.left_trigger < 0.001) {
+//                motor6.setPower(0.0);
+//                motor7.setPower(0.0);
+//            }
+//            if (gamepad2.right_stick_x > 0.000) {
+//                motor6.setPower(-1.0);
+//                motor7.setPower(-1.0);
+//            }
+//            if (gamepad2.right_stick_x > 0.000 && gamepad2.right_stick_x < 0.001) {
+//                motor6.setPower(0.0);
+//                motor7.setPower(0.0);
+//            }
 
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.addData("Front left/Right", "%4.2f, %4.2f", leftFrontPower, rightFrontPower);

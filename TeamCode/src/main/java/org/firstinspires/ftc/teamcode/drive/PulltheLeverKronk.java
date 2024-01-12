@@ -14,8 +14,8 @@ public class PulltheLeverKronk extends LinearOpMode {
 
     @Override
     public void runOpMode(){
-        motor6 = hardwareMap.get(DcMotor.class, "armMotor");
-        motor7 = hardwareMap.get(DcMotor.class, "armMotor");
+        motor6 = hardwareMap.get(DcMotor.class, "motor6");
+        motor7 = hardwareMap.get(DcMotor.class, "motor7");
 
         telemetry.addData("Status", "Initialized");
         telemetry.update();
@@ -23,10 +23,22 @@ public class PulltheLeverKronk extends LinearOpMode {
 
 
         while (opModeIsActive()) {
-            motor6.setPower(1.0);
-            motor7.setPower(1.0);
-            motor6.setPower(gamepad2.right_trigger);
-            motor7.setPower(gamepad2.right_trigger);
+            if (gamepad2.right_trigger > 0.000) {
+                motor6.setPower(1.0);
+                motor7.setPower(1.0);
+            }
+            if (gamepad2.right_trigger > 0.000 && gamepad2.left_trigger < 0.001) {
+                motor6.setPower(0.0);
+                motor7.setPower(0.0);
+            }
+            if (gamepad2.right_stick_x > 0.000) {
+                motor6.setPower(-1.0);
+                motor7.setPower(-1.0);
+            }
+            if (gamepad2.right_stick_x > 0.000 && gamepad2.right_stick_x < 0.001) {
+                motor6.setPower(0.0);
+                motor7.setPower(0.0);
+            }
 
         }
 

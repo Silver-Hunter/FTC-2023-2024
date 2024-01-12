@@ -91,6 +91,7 @@ public class Front extends LinearOpMode {
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
         encoderDrive(DRIVE_SPEED,  30.4,  30.4, 2.5);
+        encoderDrive(DRIVE_SPEED,  -5.0,  -5.0, 2.5);
         //encoderDrive(TURN_SPEED,   5, -5, 0.15);
         //encoderDrive(DRIVE_SPEED, -6, -6, 0.235);
 
