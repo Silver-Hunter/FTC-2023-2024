@@ -27,7 +27,7 @@ public class PulltheLeverKronk extends LinearOpMode {
                 motor6.setPower(1.0);
                 motor7.setPower(1.0);
             }
-            if (gamepad2.right_trigger > 0.000 && gamepad2.left_trigger < 0.001) {
+            else {
                 motor6.setPower(0.0);
                 motor7.setPower(0.0);
             }
@@ -35,7 +35,7 @@ public class PulltheLeverKronk extends LinearOpMode {
                 motor6.setPower(-1.0);
                 motor7.setPower(-1.0);
             }
-            if (gamepad2.right_stick_x > 0.000 && gamepad2.right_stick_x < 0.001) {
+            else {
                 motor6.setPower(0.0);
                 motor7.setPower(0.0);
             }

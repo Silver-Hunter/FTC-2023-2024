@@ -23,11 +23,11 @@ public class motorTest extends LinearOpMode {
     private DcMotor backLeft = null;
     private DcMotor backRight = null;
     private DcMotor motor5 = null;
-    private DcMotor motor6;
+    private DcMotor motor6 = null;
     private DcMotor motor7 = null;
-    private DcMotor motor8;
-    private Servo servo1;
-    private Servo servo2;
+    private DcMotor motor8 = null;
+    private Servo servo1 = null;
+    private Servo servo2 = null;
 
     @Override
     public void runOpMode() {
@@ -43,7 +43,7 @@ public class motorTest extends LinearOpMode {
         motor7 = hardwareMap.get(DcMotor.class, "motor7");
         motor5 = hardwareMap.get(DcMotor.class, "motor5");
         servo1 = hardwareMap.get(Servo.class, "creeeak");
-//        servo2 = hardwareMap.get(Servo.class, "pinch");
+        servo2 = hardwareMap.get(Servo.class, "pinch");
 
         frontLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         frontRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -72,8 +72,8 @@ public class motorTest extends LinearOpMode {
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
 
-            motor8.setPower(0.1);
-            motor8.setPower(Math.pow(gamepad2.left_stick_x, 3));
+            motor8.setPower(0.01);
+            motor8.setPower(-gamepad2.left_stick_y);
 
             double max;
 
@@ -128,31 +128,32 @@ public class motorTest extends LinearOpMode {
                 servo1.setPosition(1);
             }
 
-//            if (gamepad2.a) {
-//                servo2.setPosition(0);
-//            }
-//            if (gamepad2.b) {
+            if (gamepad2.a) {
+                servo2.setPosition(0);
+            }
+            if (gamepad2.b) {
 
-//                servo2.setPosition(1);
-//            }
+                servo2.setPosition(1);
+            }
             motor5.setPower(-gamepad2.left_trigger);
 
-//            if (gamepad2.right_trigger > 0.000) {
-//                motor6.setPower(1.0);
-//                motor7.setPower(1.0);
-//            }
-//            if (gamepad2.right_trigger > 0.000 && gamepad2.left_trigger < 0.001) {
-//                motor6.setPower(0.0);
-//                motor7.setPower(0.0);
-//            }
-//            if (gamepad2.right_stick_x > 0.000) {
-//                motor6.setPower(-1.0);
-//                motor7.setPower(-1.0);
-//            }
-//            if (gamepad2.right_stick_x > 0.000 && gamepad2.right_stick_x < 0.001) {
-//                motor6.setPower(0.0);
-//                motor7.setPower(0.0);
-//            }
+            if (gamepad2.right_trigger > 0.000) {
+                motor6.setPower(1.0);
+                motor7.setPower(1.0);
+            }
+            else {
+                motor6.setPower(0.0);
+                motor7.setPower(0.0);
+            }
+            if (gamepad2.right_stick_x > 0.000) {
+                motor6.setPower(-1.0);
+                motor7.setPower(-1.0);
+            }
+            else {
+                motor6.setPower(0.0);
+                motor7.setPower(0.0);
+            }
+            
 
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.addData("Front left/Right", "%4.2f, %4.2f", leftFrontPower, rightFrontPower);

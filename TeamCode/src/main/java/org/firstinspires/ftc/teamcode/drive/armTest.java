@@ -18,11 +18,9 @@ public class armTest extends LinearOpMode {
         telemetry.addData("Status", "Initialized");
         telemetry.update();
         waitForStart();
-
-
         while (opModeIsActive()) {
-            motor8.setPower(0.1);
-            motor8.setPower(gamepad1.left_stick_x);
+            motor8.setPower(0.01);
+            motor8.setPower(-gamepad2.left_stick_y);
 
         }
 
