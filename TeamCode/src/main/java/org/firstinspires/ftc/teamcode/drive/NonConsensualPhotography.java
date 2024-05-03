@@ -11,7 +11,7 @@ import org.firstinspires.ftc.vision.tfod.TfodProcessor;
 
 import java.util.List;
 
-@TeleOp(name = "NonConsensual Photography")
+@TeleOp(name = "NonConsensual Photography (N/A)")
 public class NonConsensualPhotography extends LinearOpMode {
 
     private static final boolean USE_WEBCAM = true;
