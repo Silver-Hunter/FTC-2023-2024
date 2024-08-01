@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@TeleOp(name = "pleaseworkidontwanttobeupallnight (N/A)")
+@TeleOp(name = "Servo TEST 2")
 public class pleaseworkidontwanttobeupallnight extends LinearOpMode {
     private Servo servo2;
 

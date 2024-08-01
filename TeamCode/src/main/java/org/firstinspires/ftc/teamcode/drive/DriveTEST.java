@@ -3,7 +3,6 @@ package org.firstinspires.ftc.teamcode.drive;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 /*
@@ -12,21 +11,14 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * 3) Yaw:      Rotating Clockwise and counter clockwise    Right-joystick Right and Left
  */
 
-@TeleOp(name="Driver Control (OLD)", group="Linear OpMode")
+@TeleOp(name="Driver Control", group="Linear OpMode")
 
-public class motorTest extends LinearOpMode {
+public class DriveTEST extends LinearOpMode {
     private ElapsedTime runtime = new ElapsedTime();
     private DcMotor frontLeftDrive = null;
     private DcMotor frontRightDrive = null;
     private DcMotor backLeftDrive = null;
     private DcMotor backRightDrive = null;
-    private DcMotor motor5 = null;
-    private DcMotor motor6 = null;
-    private DcMotor motor7 = null;
-    private DcMotor motor8 = null;
-    private Servo servo1 = null;
-    private Servo servo2 = null;
-
     @Override
     public void runOpMode() {
 
@@ -36,12 +28,7 @@ public class motorTest extends LinearOpMode {
         frontRightDrive = hardwareMap.get(DcMotor.class, "frontRightDrive");
         backLeftDrive = hardwareMap.get(DcMotor.class, "backLeftDrive");
         backRightDrive = hardwareMap.get(DcMotor.class, "backRightDrive");
-        motor8 = hardwareMap.get(DcMotor.class, "motor8");
-        motor6 = hardwareMap.get(DcMotor.class, "motor6");
-        motor7 = hardwareMap.get(DcMotor.class, "motor7");
-        motor5 = hardwareMap.get(DcMotor.class, "motor5");
-        servo1 = hardwareMap.get(Servo.class, "creeeak");
-        servo2 = hardwareMap.get(Servo.class, "pinch");
+
 
         frontLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         frontRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -67,9 +54,6 @@ public class motorTest extends LinearOpMode {
 
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
-
-            motor8.setPower(0.01);
-            motor8.setPower(-gamepad2.left_stick_y);
 
             double max;
 
@@ -116,39 +100,6 @@ public class motorTest extends LinearOpMode {
             int position2 = frontRightDrive.getCurrentPosition();
             int position3 = backLeftDrive.getCurrentPosition();
             int position4 = backRightDrive.getCurrentPosition();
-
-            if (gamepad2.x){
-                servo1.setPosition(0);
-            }
-            if (gamepad2.y){
-                servo1.setPosition(1);
-            }
-
-            if (gamepad2.a) {
-                servo2.setPosition(0);
-            }
-            if (gamepad2.b) {
-
-                servo2.setPosition(1);
-            }
-            motor5.setPower(-gamepad2.left_trigger);
-
-            if (gamepad2.right_trigger > 0.000) {
-                motor6.setPower(1.0);
-                motor7.setPower(1.0);
-            }
-            else {
-                motor6.setPower(0.0);
-                motor7.setPower(0.0);
-            }
-            if (gamepad2.right_stick_x > 0.000) {
-                motor6.setPower(-1.0);
-                motor7.setPower(-1.0);
-            }
-            else {
-                motor6.setPower(0.0);
-                motor7.setPower(0.0);
-            }
 
 
             telemetry.addData("Status", "Run Time: " + runtime.toString());

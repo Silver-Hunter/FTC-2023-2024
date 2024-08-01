@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@TeleOp(name="Take it, Kronk, feel the power (N/A)", group="Linear OpMode")
+@TeleOp(name="Climbing TEST", group="Linear OpMode")
 
 public class PulltheLeverKronk extends LinearOpMode {
 
